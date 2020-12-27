@@ -17,18 +17,32 @@ public class FirstGitProject {
         return Arrays.toString(arr[4]);
     }
 
-
-    public static void main(String[] args) {
-
-        int[][] arr = {
-                {1, 5, 7, 8, 9},
-                {7, 8, 1, 3, 4},
-                {8, 6, 3, 5, 0},
-                {1, 5, 9, 7, 5},
-                {13, 9, 1, 3, 4}
-        };
-
-        System.out.println(showBottomLeftElement(arr));
-        System.out.println(showFifthStringOfArray(arr));
+    public static String showSecondColumnOfArray(int[][] arr) {
+        StringBuilder secondColumnOfArray = new StringBuilder("{ ");
+        for (int j = 0, i = 1; j < arr.length; j++) {
+            if (j == arr.length - 1) {
+                secondColumnOfArray.append(arr[j][i]).append(" }");
+                break;
+            }
+            secondColumnOfArray.append(arr[j][i]).append(", ");
+        }
+        return secondColumnOfArray.toString();
     }
+
+
+        public static void main(String[] args){
+
+            int[][] arr = {
+                    {1, 5, 7, 8, 9},
+                    {7, 8, 1, 3, 4},
+                    {8, 6, 3, 5, 0},
+                    {1, 5, 9, 7, 5},
+                    {13, 9, 1, 3, 4}
+            };
+
+            System.out.println(showBottomLeftElement(arr));
+            System.out.println(showFifthStringOfArray(arr));
+            System.out.println(showSecondColumnOfArray(arr));
+        }
 }
+
