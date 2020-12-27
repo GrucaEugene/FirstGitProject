@@ -1,6 +1,7 @@
 package com.technical.firstGitProject;
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class FirstGitProject {
 
@@ -29,6 +30,19 @@ public class FirstGitProject {
         return secondColumnOfArray.toString();
     }
 
+    public static String getFilledTwoDimensionalArray(int[][] newArr) {
+        Random random = new Random();
+        int j = 0;
+        for (int i = 0; i < newArr[j].length; i++) {
+            newArr[j][i] = random.nextInt(100);
+        }
+        j++;
+        for (int i = 0; i < newArr[j].length; i++) {
+            newArr[j][i] = random.nextInt(100);
+        }
+        return Arrays.deepToString(newArr);
+    }
+
 
         public static void main(String[] args){
 
@@ -43,6 +57,10 @@ public class FirstGitProject {
             System.out.println(showBottomLeftElement(arr));
             System.out.println(showFifthStringOfArray(arr));
             System.out.println(showSecondColumnOfArray(arr));
+
+            System.out.println("Заполненный случайными числами двухмерный массив:");
+            int[][] newArr = new int[2][10];
+            System.out.println(getFilledTwoDimensionalArray(newArr));
         }
 }
 
