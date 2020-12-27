@@ -43,6 +43,33 @@ public class FirstGitProject {
         return Arrays.deepToString(newArr);
     }
 
+    public static String getTwoDimensionalArrayWithNonRepeatingElements(int[][] newArr2) {
+        Random random = new Random();
+
+        for (int j = 0; j < newArr2.length; j++) {
+            for (int i = 0; i < newArr2[j].length; i++) {
+                int nextRand;
+                do {
+                    nextRand = random.nextInt(21);
+                } while (nextRand == 0 || duplicates(j, i, newArr2, nextRand));
+                newArr2[j][i] = nextRand;
+            }
+        }
+        return Arrays.deepToString(newArr2);
+    }
+
+    public static boolean duplicates(int currentRow, int currentCol, int[][] testArray, int testElem) {
+        for (int j = 0; j <= currentRow; j++) {
+            int colLimit = j == currentRow ? currentCol : testArray[j].length;
+            for (int i = 0; i < colLimit; i++) {
+                if (testArray[j][i] == testElem) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
 
         public static void main(String[] args){
 
@@ -61,6 +88,10 @@ public class FirstGitProject {
             System.out.println("Заполненный случайными числами двухмерный массив:");
             int[][] newArr = new int[2][10];
             System.out.println(getFilledTwoDimensionalArray(newArr));
+
+            System.out.println("Двухмерный массив с неповторяющимися числами:");
+            int[][] newArr2 = new int[2][10];
+            System.out.println(getTwoDimensionalArrayWithNonRepeatingElements(newArr2));
         }
 }
 
